@@ -97422,7 +97422,7 @@ class Camera {
       //穩定
       view.angleY = (faces[0].keypoints[168].y-250)/100*30*(-1);
       /*歪頭*/
-      view.angleZ = (faces[0].keypoints[50].x-faces[0].keypoints[170].x)*-1;
+      view.angleZ = -(faces[0].keypoints[151].x - faces[0].keypoints[1].x);
       /*眼睛控制*/
       if((faces[0].keypoints[145].y)-(faces[0].keypoints[159].y) < 3){
         view.eyeLOpen = 0; //右眼閉
@@ -97438,7 +97438,11 @@ class Camera {
       }
 
       /*嘴巴控制*/
-      view.mouthOpenY = (faces[0].keypoints[12].y-faces[0].keypoints[11].y)-10;
+      if(faces[0].keypoints[14].y - faces[0].keypoints[13].y < 3){
+        view.mouthOpenY = 0;
+      }else{
+        view.mouthOpenY = faces[0].keypoints[14].y - faces[0].keypoints[13].y;
+      }
     });
   }
 }
