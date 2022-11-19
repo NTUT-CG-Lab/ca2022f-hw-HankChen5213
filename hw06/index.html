@@ -203,7 +203,8 @@
   <div class="row hw12">
     <div class="col-md-12 twenty">
       作業程式碼，請放在 src 檔案夾。
-      <input type="button" name="back" onclick="window.open('./src/index.html');" value="點此觀看...">
+      <input type="button" name="back" onclick="parent.location='./src/index.html'" value="...按我...按我...按我...">
+    </div>
   </div>
 
   <!-- ------------------------------------------------>
@@ -260,8 +261,10 @@
         <iframe style="width:100%;height:100vh;" src="https://www.youtube.com/watch?v=MSaEeFoAbuA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
-  </div>
+
   <!-- ------------------------------------------------>
+
+
 
 <script>
   $(function() {
@@ -277,7 +280,7 @@
   d3.select("#myCheckbox4").on("change",update);
   d3.select("#myCheckbox5").on("change",update);
   d3.select("#myCheckbox6").on("change",update);
-  //d3.select("#myCheckbox7").on("change",update);
+  d3.select("#myCheckbox7").on("change",update);
 
   update();
   
@@ -304,14 +307,6 @@
     if (d3.select("#myCheckbox5").property("checked")){
       score += parseInt(d3.select('#m5').html());   
     }
-
-    if (d3.select("#myCheckbox6").property("checked")){
-      score += parseInt(d3.select('#m6').html());   
-    }
-
-    // if (d3.select("#myCheckbox7").property("checked")){
-    //   score += parseInt(d3.select('#m7').html());   
-    // }
 
     d3.select("#myTotal").html(score);    
   }
