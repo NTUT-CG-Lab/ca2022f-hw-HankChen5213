@@ -224,7 +224,8 @@
           <th>分項描述</th>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
+          <td rowspan="7" id="myTotal"></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox1" checked></td>
           <td id='m2'>3</td>
           <td>Simple Baseline: 角色能做單一動作 </td>
         </tr>
@@ -234,12 +235,12 @@
           <td>Medium Baseline: 角色能夠做多個動作，切換自如 ->3個以上</td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox2" checked></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox3" checked></td>
           <td id='m2'>2</td>
           <td>Medium Baseline: 在 Game 模式中可以按滑鼠右鍵旋轉視角，觀看不同動作 </td>
         </tr>
         <tr>
-          <td><input type="checkbox" class="flipswitch" id="myCheckbox5" checked></td>
+          <td><input type="checkbox" class="flipswitch" id="myCheckbox4" checked></td>
           <td id='m5'>2</td>
           <td>Strong Baseline: 在 Game 模式中可以按滑鼠滾輪放大，觀看不同動作</td>
         </tr>
@@ -272,8 +273,6 @@
   d3.select("#myCheckbox2").on("change",update);
   d3.select("#myCheckbox3").on("change",update);
   d3.select("#myCheckbox4").on("change",update);
-  d3.select("#myCheckbox5").on("change",update);
-  d3.select("#myCheckbox6").on("change",update);
 
   update();
   
@@ -295,14 +294,6 @@
 
     if (d3.select("#myCheckbox4").property("checked")){
       score += parseInt(d3.select('#m4').html());   
-    }
-
-    if (d3.select("#myCheckbox5").property("checked")){
-      score += parseInt(d3.select('#m5').html());   
-    }
-
-    if (d3.select("#myCheckbox6").property("checked")){
-      score += parseInt(d3.select('#m6').html());   
     }
 
     d3.select("#myTotal").html(score);    
